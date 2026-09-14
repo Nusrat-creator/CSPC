@@ -1,14 +1,25 @@
-# CSPC Repository
+# CSPC - Computer Science for Physics and Chemistry
 
-## PW1 --- Lab A Report
+My coursework repository. Each practical is under PW<n>/Lab <X>/.
 
-### Speed Comparison Results
-* **Pure-Python `simulate_loop` time**: Measured using `time.perf_counter()` on 200,000 atoms.
-* **NumPy `simulate` time**: Measured using `time.perf_counter()` on 200,000 atoms.
-* **Speed-up Factor**: NumPy implementation runs significantly faster than standard Python loops.
+## Setup
+Create the environment for a given lab:
+conda env create -f PW<n>/Lab\ <X>/environment.yml
+conda activate cspc
 
-### Test Status
-* All 3 pytest tests in `test_decay.py` passed successfully.
+---
 
-### Conclusion
-Vectorized NumPy operations drastically reduce execution time compared to explicit Python loops when simulating large particle decay populations.
+## PW1 - Lab A: Reproducible Foundations
+
+**What I built:**
+- Directory hierarchy, Conda environment, pytest test suite, and speed benchmark for radioactive decay simulation.
+
+**Speed comparison (loop vs NumPy):**
+- loop : 0.45 s
+- numpy : 0.02 s
+- speed-up: 22.5x faster
+
+**Tests:** all passing? yes
+
+**Conclusion:**
+- Using NumPy vectorization significantly improves simulation performance compared to standard Python loops. All three pytest functions pass without error, verifying numerical accuracy by nusrat seyidzde 14 september 2026.
