@@ -48,3 +48,25 @@ conda activate cspc
 * **Mean Acceleration:** The measured mean acceleration of the falling object was roughly -9.81 m/s^2, confirming free fall.
 * **Noise Observation:** The computed acceleration was highly noisy because calculating derivatives magnifies the small, random measurement errors present in the original position data.
 * **Integration Recovery:** Integrating the noisy acceleration back up to position suppressed the noise, recovering the original position track within roughly 1 metre.BY NUSRAT SEYIDZADE
+
+## PW2 - Lab B: Optimization Algorithms
+
+**Three routes to a minimum:**
+- On the easy convex function $f(x)$, Gradient Descent, Newton's Method, and SLSQP all easily agree on the global minimum at $x=3$.
+- On the harder landscape $g(x)$, starting from $x_0=0$ causes the methods to disagree: Gradient Descent and SLSQP find a local minimum, but Newton's method zeroes in on the nearest stationary point, which happens to be a local maximum ($g'' < 0$).
+- When changing the starting point to $x_0=2$, all three methods successfully find and agree on the same local minimum. 
+- **Key Lesson:** On complicated landscapes, the choice of algorithm and the initial starting point drastically change the final result.BY NUSRAT SEYIDZADE DATE IS 5 OCTOBER 2026 CS2 2025 L1
+
+## PW2 --- Lab B Report
+
+* **Optimization Methods Comparison:** Gradient Descent, Newton's method, and SLSQP easily agreed on a simple convex function. However, on a harder landscape with multiple stationary points, their success and agreement depended entirely on the starting point.
+* **Fitted Rate Constant:** Using curve-fitting (minimizing squared error), the rate constant $k$ for the first-order reaction was found to be approximately 0.26.
+* **Equilibrium Composition:** Both root-finding (Newton) and minimization (SLSQP) found the extent of reaction to be $x \approx 0.66$. This yields an equilibrium composition of roughly 0.33 mol H2, 0.33 mol I2, and 1.33 mol HI.
+* **Titration Equivalence Point (Bonus):** By calculating the derivative of the pH curve and finding its maximum slope, the equivalence point was numerically located at approximately 50 mL.
+
+## PW2 --- Lab B Report
+
+* **Optimization Methods Comparison:** Gradient Descent, Newton's method, and SLSQP easily agreed on a simple convex function. However, on a harder landscape with multiple stationary points, their success and agreement depended entirely on the starting point.
+* **Fitted Rate Constant:** Using curve-fitting (minimizing squared error), the rate constant $k$ for the first-order reaction was found to be approximately 0.26.
+* **Equilibrium Composition:** Both root-finding (Newton) and minimization (SLSQP) found the extent of reaction to be $x \approx 0.66$. This yields an equilibrium composition of roughly 0.33 mol H2, 0.33 mol I2, and 1.33 mol HI.
+* **Titration Equivalence Point (Bonus):** By calculating the derivative of the pH curve and finding its maximum slope, the equivalence point was numerically located at approximately 50 mL.
