@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
 
-# Task 1: Load data and isolate continuous columns
 df = pd.read_csv("heart.csv")
 print("Dataset Shape:", df.shape)
 print("\nFirst 5 Rows:")
@@ -12,7 +11,6 @@ print(df.head())
 cols = ["age", "chol", "trestbps", "thalach"]
 df_cont = df[cols]
 
-# Task 2: Visualize distributions (4 panels)
 fig, axes = plt.subplots(2, 2, figsize=(10, 8))
 axes = axes.flatten()
 
@@ -26,7 +24,6 @@ plt.tight_layout()
 plt.savefig("distributions.png")
 print("\ndistributions.png saved successfully.")
 
-# Task 3: Statistical normality checks
 print("\n--- Normality Test Results (Shapiro-Wilk) ---")
 for col in cols:
     stat, p_val = stats.shapiro(df[col].dropna())

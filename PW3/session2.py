@@ -4,19 +4,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
 
-# ==========================================
-# Task 4: Is the effect real? (Heart Disease)
-# ==========================================
+
 df_heart = pd.read_csv("heart.csv")
 
-# Split thalach into disease (target=1) and healthy (target=0)
 disease_thalach = df_heart[df_heart['target'] == 1]['thalach'].dropna()
 healthy_thalach = df_heart[df_heart['target'] == 0]['thalach'].dropna()
 
-# Mann-Whitney U test (non-parametric since thalach was non-normal in Session 1)
 stat, p_val = stats.mannwhitneyu(disease_thalach, healthy_thalach)
 
-# Calculate means and Standard Error of the Mean (SEM)
 m_dis, sem_dis = disease_thalach.mean(), disease_thalach.sem()
 m_hea, sem_hea = healthy_thalach.mean(), healthy_thalach.sem()
 
@@ -26,7 +21,6 @@ print(f"Healthy Group : Mean = {m_hea:.2f} ± {sem_hea:.2f} bpm")
 print(f"Mann-Whitney U statistic = {stat:.1f}, p-value = {p_val:.5e}")
 print("Conclusion: " + ("Genuinely differ (p < 0.05)" if p_val < 0.05 else "No significant difference"))
 
-# Plot means with uncertainty (SEM)
 plt.figure(figsize=(6, 5))
 sns.barplot(x='target', y='thalach', data=df_heart, capsize=0.1, errorbar='se', palette='Set2')
 plt.xticks([0, 1], ['Healthy (0)', 'Disease (1)'])
@@ -35,9 +29,6 @@ plt.title('Mean Max Heart Rate with Uncertainty (SEM)')
 plt.tight_layout()
 plt.savefig('thalach_target.png')
 
-# ==========================================
-# Task 5: Do two things move together?
-# ==========================================
 r_val, p_corr = stats.spearmanr(df_heart['age'], df_heart['thalach'])
 
 print("\n--- Task 5: Correlation (Age vs Thalach) ---")
@@ -51,9 +42,6 @@ plt.ylabel('Max Heart Rate (thalach)')
 plt.tight_layout()
 plt.savefig('age_thalach.png')
 
-# ==========================================
-# Task 6 & 7: Chemical-Exposure Mystery
-# ==========================================
 df_chem = pd.read_csv("chemicals_cancer.csv")
 
 print("\n--- Task 6: Naive Correlation Analysis ---")
