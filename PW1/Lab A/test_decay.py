@@ -13,7 +13,7 @@ def test_negative_rate_raises_value_error():
 def test_simulation_average_theoretical():
     N0 = 10000
     rate = 0.4
-    t_final = 10.0  # Adjust if decay.py uses a different t_max
+    t_final = 10.0
     results = [decay.simulate(N0, rate)[-1] for _ in range(100)]
     avg = np.mean(results)
     expected = N0 * np.exp(-rate * t_final)
